@@ -23,7 +23,7 @@ describe('testing list', () => {
     });
   });
   describe('testing pop', () => {
-    it('should pop off a value to the list', () => {
+    it('should pop off a value from the list', () => {
       let list = new List();
       list.push(1);
       list.push(2);

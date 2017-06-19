@@ -5,7 +5,7 @@ const List = module.exports = function() {
 };
 
 List.prototype.push = function(value) {
-  this[this.value] = value;
+  this[this.length] = value;
   this.length++;
 };
 
