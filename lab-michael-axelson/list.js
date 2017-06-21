@@ -10,7 +10,7 @@ List.prototype.push = function(value) {
 };
 
 List.prototype.pop = function() {
-  if (this.length < 1) return
+  if (this.length < 1) return;
   let result = this[this.length-1];
   delete this[this.length -1];
   this.length--;
@@ -38,18 +38,31 @@ List.prototype.filter = function(callback) {
 
 List.prototype.slice = function(start, finish) {
   let newArray = [];
-  for (let i=0; i<this.length; i++) {
+  (!finish)?finish=this.length:this.finish=finish;
+  for (let i=start; i<finish; i++) {
     if (start<this[i]<=finish)
       newArray.push(this[i]);
   }
   return newArray;
 };
 
-// List.prototype.reduce = function(acc, prev, curr) {
-//   let newArray = [];
-//   for (let i=0; i<this.length; i++) {
-//     if (start<=this[i]<=finish)
-//       newArray.push(this[i]);
-//   }
-//   return newArray;
-// };
+List.prototype.reduce = function(callback, initial) {
+  let result;
+  let i;
+  (initial)?initial=i:i=0;
+  for (i; i<this.length; i++) {
+    result = callback(result, this[i]);
+    console.log(result);
+  }
+  return result;
+};
+
+let list = new List();
+
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+console.log(list);
+list.reduce((a,c)=>(a)+(c),2);
+// console.log(result);

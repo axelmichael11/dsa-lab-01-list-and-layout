@@ -99,10 +99,10 @@ describe('testing list', () => {
       list.push(6);
       list.push(7);
       list.push(8);
-      console.log(list);
-      expect(list.length).toEqual(4);
+
+      expect(list.length).toEqual(8);
       let result = list.slice(3,7);
-      console.log(result.length);
+      
       expect(result.length).toEqual(4);
       expect(result[0]).toEqual(4);
       expect(result[1]).toEqual(5);
@@ -110,10 +110,21 @@ describe('testing list', () => {
       expect(result[3]).toEqual(7);
       expect(result[4]).toEqual(undefined);
 
+
     });
   });
-  // describe('testing reduce', () => {
-  //   it('should pop off a value from the list', () => {
-  //   });
-  // });
+  describe('testing reduce', () => {
+    it('should add up to 10', () => {
+      let list = new List();
+
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.push(4);
+      console.log(list);
+      let result = list.reduce((a,c)=>parseInt(a)+parseInt(c),2);
+      console.log(result);
+      expect(result).toEqual(12);
+    });
+  });
 });
