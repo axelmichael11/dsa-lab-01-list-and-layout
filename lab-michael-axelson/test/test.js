@@ -102,7 +102,7 @@ describe('testing list', () => {
 
       expect(list.length).toEqual(8);
       let result = list.slice(3,7);
-      
+
       expect(result.length).toEqual(4);
       expect(result[0]).toEqual(4);
       expect(result[1]).toEqual(5);
@@ -122,9 +122,9 @@ describe('testing list', () => {
       list.push(3);
       list.push(4);
       console.log(list);
-      let result = list.reduce((a,c)=>parseInt(a)+parseInt(c),2);
+      let result = list.reduce(((a,c)=>a+c),0);
       console.log(result);
-      expect(result).toEqual(12);
+      expect(result).toEqual(10);
     });
   });
 });

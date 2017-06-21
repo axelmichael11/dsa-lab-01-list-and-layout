@@ -46,23 +46,28 @@ List.prototype.slice = function(start, finish) {
   return newArray;
 };
 
-List.prototype.reduce = function(callback, initial) {
-  let result;
+List.prototype.reduce = function(callback,initial) {
+  let result = initial;
   let i;
-  (initial)?initial=i:i=0;
-  for (i; i<this.length; i++) {
+  if(initial && typeof initial === 'number') {
+    i = initial;
+  } else if (initial && typeof initial !== 'number') {
+    i = 1;
+  } else {
+    i=0;
+  }
+  for (i; i < this.length; i++) {
     result = callback(result, this[i]);
-    console.log(result);
   }
   return result;
 };
 
-let list = new List();
-
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-console.log(list);
-list.reduce((a,c)=>(a)+(c),2);
+// let list = new List();
+//
+// list.push(1);
+// list.push(2);
+// list.push(3);
+// list.push(4);
+// console.log(list);
+// list.reduce((a,c)=>(a)+(c),2);
 // console.log(result);
